@@ -5,6 +5,7 @@ import usePagination, { DOTS } from "../hooks/usePagination";
 
 import PropTypes from "prop-types";
 import React from "react";
+import { useState } from "react";
 import { nanoid } from "nanoid";
 
 function Pagination({
@@ -20,6 +21,11 @@ function Pagination({
     totalCount,
     pageSize,
   });
+
+//  const [page, setpage] = useState(1)
+//  const changepage = () => {
+//   setpage(currentPage)
+//  }
 
   const onNext = () => {
     onPageChange(currentPage + 1);
