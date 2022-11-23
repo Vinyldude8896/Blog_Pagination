@@ -27,19 +27,12 @@ function Pagination({
 
   const onNext = () => {
     onPageChange(currentPage + 1);
-    setCurrentPage(currentPage);
 
   };
 
   const onPrevious = () => {
     onPageChange(currentPage - 1);
-    setCurrentPage(page)
   };
-
-
-
-
-
 
   return (
     <ul
@@ -135,7 +128,8 @@ Pagination.defaultProps = {
   currentPage: 1,
   pageSize: 1,
   pageSizeOptions: [15, 25, 50, 100],
-  onPageChange: () => {},
+  onPageChange: () => {
+  },
   onPageSizeOptionChange: () => {},
 };
 

@@ -7,15 +7,16 @@ import blogs from "./data/blogs.json"
 
 function HatchwaysBlog() {
 
-  const [posts, setPosts] = useState([]);
+const [posts, setPosts] = useState([]);
 const [loading, setLoading] = useState(false);
 const [page, setCurrentPage] = useState(1)
+
 const [ postsPerPage, setPostsPerPage] = useState(15)
 
   useEffect (() => {
     const fetchPosts = async () => {
       setLoading(true);
-      const results = await blogs.posts.slice(0, postsPerPage);
+      const results = await blogs.posts;
       setPosts(results);
       setLoading(false);
     }
@@ -24,11 +25,22 @@ const [ postsPerPage, setPostsPerPage] = useState(15)
 
   console.log(posts)
 
+  const indexOfLastPost = page * postsPerPage;
+  const indexOfFirstPost = indexOfLastPost - postsPerPage;
+  const currentPosts = posts.slice(indexOfFirstPost, indexOfLastPost)
+
+  console.log("Indexes are" + "First Post " + indexOfFirstPost + " Index of Last Post " + indexOfLastPost) 
+
+  console.log(currentPosts)
+
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+  const paginatePostsPerPage = (pageNumber) => setPostsPerPage(pageNumber);
+
   return (
     <div style={{ margin: "0 auto", width: "100%", padding: 20 }}>
       <StyledNavbar />
       <div style={{ marginTop: 60, display: "flex" }}>
-        <BlogList posts={posts} loading={loading} />
+        <BlogList page={page} posts={currentPosts} loading={loading} postsPerPage={postsPerPage} totalPosts={posts.length} paginate={paginate} paginatePostsPerPage={paginatePostsPerPage} />
         <StickySidebar />
       </div>
     </div>

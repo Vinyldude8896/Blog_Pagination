@@ -1,38 +1,44 @@
 import BlogPost from "./BlogPost";
 import Pagination from "./Pagination";
-import React from "react";
+import React, {useState, useEffect} from "react";
 import blogs from "../data/blogs.json";
 
 const PAGE_SIZES = [15, 25, 50, 100];
 
-function BlogList({ posts, loading}) {
+function BlogList({ page, posts, loading, postsPerPage, paginate, paginatePostsPerPage}) {
 
   if (loading) {
     return <h2>Loading...</h2>;
   }
   
-  // const currentPaginationData = blogs.posts.slice(0, 15);
+  var currentPaginationData = posts
 
-  const currentPaginationData = posts;
+  const updateRowsPerPage = (postsPerPage) => {
+
+    let integerPostsPerPage = parseInt(postsPerPage);
+
+    paginatePostsPerPage(integerPostsPerPage);
+  };
 
 
+  const updatePage = (pageNumber) => {
 
-  const updateRowsPerPage = () => {};
+    console.log(pageNumber)
 
-
-  const updatePage = () => {
+    paginate(pageNumber)
 
   };
 
   return (
     <div>
       <Pagination
-        currentPage={1}
+        currentPage={page}
         totalCount={blogs.posts.length}
-        pageSize={15}
+        pageSize={postsPerPage}
         pageSizeOptions={PAGE_SIZES}
         onPageChange={updatePage}
         onPageSizeOptionChange={updateRowsPerPage}
+  
       />
       <ul
         // Do not modify the aria-label below, it is used for Hatchways automation.
