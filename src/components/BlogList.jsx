@@ -5,11 +5,24 @@ import blogs from "../data/blogs.json";
 
 const PAGE_SIZES = [15, 25, 50, 100];
 
-function BlogList() {
-  const currentPaginationData = blogs.posts.slice(0, 15);
+function BlogList({ posts, loading}) {
+
+  if (loading) {
+    return <h2>Loading...</h2>;
+  }
+  
+  // const currentPaginationData = blogs.posts.slice(0, 15);
+
+  const currentPaginationData = posts;
+
+
 
   const updateRowsPerPage = () => {};
-  const updatePage = () => {};
+
+
+  const updatePage = () => {
+
+  };
 
   return (
     <div>

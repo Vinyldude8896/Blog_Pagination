@@ -5,8 +5,10 @@ import usePagination, { DOTS } from "../hooks/usePagination";
 
 import PropTypes from "prop-types";
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { nanoid } from "nanoid";
+import blogs from "../data/blogs.json";
+import { scryRenderedDOMComponentsWithClass } from "react-dom/test-utils";
 
 function Pagination({
   onPageChange,
@@ -22,18 +24,22 @@ function Pagination({
     pageSize,
   });
 
-//  const [page, setpage] = useState(1)
-//  const changepage = () => {
-//   setpage(currentPage)
-//  }
 
   const onNext = () => {
     onPageChange(currentPage + 1);
+    setCurrentPage(currentPage);
+
   };
 
   const onPrevious = () => {
     onPageChange(currentPage - 1);
+    setCurrentPage(page)
   };
+
+
+
+
+
 
   return (
     <ul
