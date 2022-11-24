@@ -43,12 +43,13 @@ function Pagination({
     >
       <li className="paginationItem">
         <button
+          name = "Goto previous page"
           type="button"
           className="arrowButton left"
           // Do not modify the aria-label below, it is used for Hatchways automation.
           aria-label="Goto previous page"
           onClick={onPrevious}
-          // disabled={currentPage === 1 ? true : false} // If the current page is 1 - have the button be disabled, otherwise keep it enabled
+          disabled={currentPage === "1" ? true : false} // If the current page is 1 - have the button be disabled, otherwise keep it enabled
         >
           <ChevronLeftIcon />
         </button>
@@ -79,6 +80,7 @@ function Pagination({
             aria-current= {pageNumber === currentPage ? "page" : "Notpage"} // if pagenumber selected is equal to currentpage then use CSS styling page
           >
             <button
+              name= {pageNumber}
               type="button"
               // Do not modify the aria-label below, it is used for Hatchways automation.
               aria-label={`Goto page ${pageNumber}`}
@@ -92,12 +94,13 @@ function Pagination({
 
       <li className="paginationItem">
         <button
+          name ="Goto next page"
           type="button"
           className="arrowButton right"
           // Do not modify the aria-label below, it is used for Hatchways automation.
           aria-label="Goto next page"
           onClick={onNext}
-          // disabled={currentPage === lastvalueInMap ? true : false} // This will check to see if the currentpage is the lastvalue in the pagination pages returned
+          disabled={currentPage === lastvalueInMap ? true : false} // This will check to see if the currentpage is the lastvalue in the pagination pages returned
         >
           <ChevronRightIcon />
         </button>

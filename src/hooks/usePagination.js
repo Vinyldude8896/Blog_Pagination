@@ -1,4 +1,5 @@
 export const DOTS = "...";
+import { array } from "prop-types";
 import { useState, useEffect, useMemo } from "react";
 import blogs from "../data/blogs.json";
 
@@ -52,6 +53,11 @@ function usePagination({
     if (!showLeftDots && showRightDots) {
       let leftItemCount = 1 + 2 * siblingCount;
       let leftRange = range(1, leftItemCount);
+      
+      // const arrayOfNumbers =  [...leftRange, DOTS, totalPageCount];
+      // const arrayOfStrings = arrayOfNumbers.map(num => {
+      //   return String(num);
+      // })
       return [...leftRange, DOTS, totalPageCount];
     }
 
@@ -61,14 +67,23 @@ function usePagination({
       let rightRange = range (
         totalPageCount - rightItemCount +1, totalPageCount
       );
-      return [firstPageIndex, DOTS, ...rightRange]
+      // const arrayOfNumbers = [firstPageIndex, DOTS, ...rightRange];
+      // const arrayOfStrings = arrayOfNumbers.map(num => {
+      //   return String(num)
+      // })
+      return [firstPageIndex, DOTS, ...rightRange];
     } 
 
     // fourth option is when we need left and right dots to be shown
 
     if (showLeftDots && showRightDots) {
       let middleRange = range(leftSiblingIndex, rightSiblingIndex);
-      return [firstPageIndex, DOTS, ...middleRange, DOTS, lastpageIndex ]
+
+      // const arrayOfNumbers = [firstPageIndex, DOTS, ...middleRange, DOTS, lastpageIndex];
+      // const arrayOfStrings = arrayOfNumbers.map(num => {
+      //   return String(num)
+      // })
+      return [firstPageIndex, DOTS, ...middleRange, DOTS, lastpageIndex];;
     }
 
 

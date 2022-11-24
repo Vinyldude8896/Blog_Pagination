@@ -22,6 +22,8 @@ const [ postsPerPage, setPostsPerPage] = useState(15)
       const results = await blogs.posts;
       act(() => {setPosts(results);})
       act(() => {setLoading(false);})
+      act(() => {setCurrentPage(1);})
+      act(() => {setPostsPerPage(15);})
     }
     fetchPosts();
   }, [])
