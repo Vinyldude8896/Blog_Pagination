@@ -19,4 +19,4 @@
 
 - Using a random generator for keys forces the process to always view every element in the array as "new or "changed"<br>
 - this forces it to rerender and  can cause unwanted side effects<br>
-- the documentation for nanoid suggested using useID instead "You should rather try to reach for stable ID inside your list item.", "In case you don’t have stable IDs you'd rather use index as key instead of nanoid():", "In case you just need random IDs to link elements like labels and input fields together, useId is recommended. That hook was added in React 18."<br>
+- the documentation for nanoid suggested using useID instead "You should rather try to reach for stable ID inside your list item.", "In case you don’t have stable IDs you'd rather use index as key instead of nanoid():", "In case you just need random IDs to link elements like labels and input fields together, useId is recommended. That hook was added in React 18."<br><br>
