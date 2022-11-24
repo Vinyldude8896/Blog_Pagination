@@ -3,11 +3,9 @@ import "../css/pagination.scss";
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/outline";
 import usePagination, { DOTS } from "../hooks/usePagination";
 
-import PropTypes from "prop-types";
+import PropTypes, { array } from "prop-types";
 import React from "react";
-import { useState, useEffect } from "react";
 import { nanoid } from "nanoid";
-import blogs from "../data/blogs.json";
 import { scryRenderedDOMComponentsWithClass } from "react-dom/test-utils";
 
 function Pagination({
@@ -24,18 +22,6 @@ function Pagination({
     pageSize,
   });
 
-  
-  const highLightCurrentPage = () => {
-    
-  }
-
- function handlePreviousButton  () {
-    if (currentPage === 1) {
-      return (false);
-    }
-  }
-
-
   const onNext = () => {
     onPageChange(currentPage + 1);
 
@@ -44,6 +30,10 @@ function Pagination({
   const onPrevious = () => {
     onPageChange(currentPage - 1);
   };
+
+  // this variable will be used to assign the last value in the pagination array returned
+  // and will be used to disable the button when the user is on the last page
+  var lastvalueInMap = 0 
 
   return (
     <ul
@@ -58,14 +48,21 @@ function Pagination({
           // Do not modify the aria-label below, it is used for Hatchways automation.
           aria-label="Goto previous page"
           onClick={onPrevious}
-          disabled={false} // change this line to disable a button.
+          disabled={currentPage === 1 ? true : false} // If the current page is 1 - have the button be disabled, otherwise keep it enabled
         >
           <ChevronLeftIcon />
         </button>
       </li>
 
-      {paginationRange.map((pageNumber) => {
-        const key = nanoid();
+      {paginationRange.map((pageNumber, i, arr) => {
+        const key = nanoid(); 
+        //  when we reach the alst item in teh returned array
+        // we assign it to a temp variable, then assign it to a global variable 
+        // this will be used to test and see if we are on the last page/to disable the next button
+        if ( arr.length === i +1 ) {
+          var getLastValueinMap = arr[i]
+          lastvalueInMap= getLastValueinMap
+        }
 
         if (pageNumber === DOTS) {
           return (
@@ -100,7 +97,7 @@ function Pagination({
           // Do not modify the aria-label below, it is used for Hatchways automation.
           aria-label="Goto next page"
           onClick={onNext}
-          disabled={false} // change this line to disable a button.
+          disabled={currentPage === lastvalueInMap ? true : false} // This will check to see if the currentpage is the lastvalue in the pagination pages returned
         >
           <ChevronRightIcon />
         </button>

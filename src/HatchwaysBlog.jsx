@@ -7,12 +7,14 @@ import blogs from "./data/blogs.json"
 
 function HatchwaysBlog() {
 
+// assigning state variables here so Pwe can setPosts, setLoading, SetCurrentPage, and setPostsPerPage on state change
 const [posts, setPosts] = useState([]);
 const [loading, setLoading] = useState(false);
 const [page, setCurrentPage] = useState(1)
-
 const [ postsPerPage, setPostsPerPage] = useState(15)
 
+
+// this is teh useEffect function that will setLoading, setPosts, and grab posts from the blogs.json file
   useEffect (() => {
     const fetchPosts = async () => {
       setLoading(true);
@@ -23,19 +25,19 @@ const [ postsPerPage, setPostsPerPage] = useState(15)
     fetchPosts();
   }, [])
 
-  console.log(posts)
-
+  // setting variables here for the indexOfLastPost, IndexOfFirstPost
+  // these are then used to slice the posts to return our current posts
   const indexOfLastPost = page * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
   const currentPosts = posts.slice(indexOfFirstPost, indexOfLastPost)
 
-  console.log("Indexes are" + "First Post " + indexOfFirstPost + " Index of Last Post " + indexOfLastPost) 
-
-  console.log(currentPosts)
-
+  // two paginate functions - one is for the page numbers at setCurrentPage
+  // the other is for the page size options when they are changed 
+  // these states will change and call the paginate functions 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
   const paginatePostsPerPage = (pageNumber) => setPostsPerPage(pageNumber);
 
+  // below we are passing Bloglist the props page, posts, loading, postsPerPage, totalPosts, paginate and paginatePostsPerPage
   return (
     <div style={{ margin: "0 auto", width: "100%", padding: 20 }}>
       <StyledNavbar />
