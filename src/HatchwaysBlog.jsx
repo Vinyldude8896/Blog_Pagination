@@ -19,7 +19,7 @@ const [ postsPerPage, setPostsPerPage] = useState(15)
   useEffect (() => {
     const fetchPosts = async () => {
       setLoading(true);
-      const results = await blogs.posts;
+      const results = blogs.posts;
       act(() => {setPosts(results);})
       act(() => {setLoading(false);})
       act(() => {setCurrentPage(1);})

@@ -2,6 +2,8 @@ import "../css/pagination.scss";
 
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/outline";
 import usePagination, { DOTS } from "../hooks/usePagination";
+import {getRoles} from '@testing-library/dom'
+
 
 import PropTypes, { array } from "prop-types";
 import React from "react";
@@ -43,7 +45,7 @@ function Pagination({
     >
       <li className="paginationItem">
         <button
-          name = "Goto previous page"
+          name="Goto previous page"
           type="button"
           className="arrowButton left"
           // Do not modify the aria-label below, it is used for Hatchways automation.
@@ -51,7 +53,7 @@ function Pagination({
           onClick={onPrevious}
           disabled={currentPage === 1 ? true : false} // If the current page is 1 - have the button be disabled, otherwise keep it enabled
         >
-          <ChevronLeftIcon />
+          <ChevronLeftIcon /> 
         </button>
       </li>
 
@@ -77,7 +79,7 @@ function Pagination({
           <li
             key={key}
             className="paginationItem"
-            aria-current= {pageNumber === currentPage ? "page" : "Notpage"} // if pagenumber selected is equal to currentpage then use CSS styling page
+            aria-current= {pageNumber === currentPage ? "page" : "false"} // if pagenumber selected is equal to currentpage then use CSS styling page
           >
             <button
               name= {pageNumber}
