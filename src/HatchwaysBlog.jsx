@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from "react";
+import {act} from "@testing-library/react"
 import BlogList from "./components/BlogList";
 import StyledNavbar from "./components/Navbar";
 import StickySidebar from "./components/StickySidebar";
@@ -19,8 +20,8 @@ const [ postsPerPage, setPostsPerPage] = useState(15)
     const fetchPosts = async () => {
       setLoading(true);
       const results = await blogs.posts;
-      setPosts(results);
-      setLoading(false);
+      act(() => {setPosts(results);})
+      act(() => {setLoading(false);})
     }
     fetchPosts();
   }, [])
