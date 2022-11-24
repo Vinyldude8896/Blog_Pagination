@@ -49,7 +49,7 @@ function Pagination({
           // Do not modify the aria-label below, it is used for Hatchways automation.
           aria-label="Goto previous page"
           onClick={onPrevious}
-          disabled={currentPage === "1" ? true : false} // If the current page is 1 - have the button be disabled, otherwise keep it enabled
+          disabled={currentPage === 1 ? true : false} // If the current page is 1 - have the button be disabled, otherwise keep it enabled
         >
           <ChevronLeftIcon />
         </button>
