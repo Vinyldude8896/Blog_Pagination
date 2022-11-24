@@ -29,6 +29,12 @@ function Pagination({
     
   }
 
+ function handlePreviousButton  () {
+    if (currentPage === 1) {
+      return (false);
+    }
+  }
+
 
   const onNext = () => {
     onPageChange(currentPage + 1);
@@ -73,7 +79,7 @@ function Pagination({
           <li
             key={key}
             className="paginationItem"
-            aria-current= "" // change this line to highlight a current page.
+            aria-current= {pageNumber === currentPage ? "page" : "Notpage"} // if pagenumber selected is equal to currentpage then use CSS styling page
           >
             <button
               type="button"
