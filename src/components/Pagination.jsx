@@ -24,6 +24,11 @@ function Pagination({
     pageSize,
   });
 
+  
+  const highLightCurrentPage = () => {
+    
+  }
+
 
   const onNext = () => {
     onPageChange(currentPage + 1);
@@ -68,7 +73,7 @@ function Pagination({
           <li
             key={key}
             className="paginationItem"
-            aria-current= "page" // change this line to highlight a current page.
+            aria-current= "" // change this line to highlight a current page.
           >
             <button
               type="button"
