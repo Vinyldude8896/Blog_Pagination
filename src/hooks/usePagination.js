@@ -9,9 +9,6 @@ function usePagination({
   pageSize,
   siblingCount = 1,
 }) {
-  /*
-    Rewrite the logic here to map out the pagination to be displayed.
-  */
 
   // range function to provide a range to send to the array, has a start and end point
   const range = (start, end) => {
