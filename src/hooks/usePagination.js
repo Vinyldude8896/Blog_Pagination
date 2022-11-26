@@ -38,9 +38,10 @@ function usePagination({
       totalPageCount
     );
 
-    // setting variable sto determine whether to show dots on left or right side of current page
-    const showLeftDots = leftSiblingIndex > 2;
-    const showRightDots = rightSiblingIndex < totalPageCount - 2;
+    // setting variables to determine whether to show dots on left or right side of current page
+    const showLeftDots = leftSiblingIndex > 1;
+    const showRightDots = rightSiblingIndex < totalPageCount;
+    // const showRightDots = rightSiblingIndex > 1;
 
     //variables for the first and last index pages
     const firstPageIndex = 1;
@@ -48,26 +49,21 @@ function usePagination({
 
     // second option is if there are no left dots but there are right dots
     if (!showLeftDots && showRightDots) {
-      let leftItemCount = 1 + 2 * siblingCount;
+      let leftItemCount = 1 + 1 * siblingCount;
+      let rightItemCount = 1 + 2 * siblingCount;
       let leftRange = range(1, leftItemCount);
-      
-      // const arrayOfNumbers =  [...leftRange, DOTS, totalPageCount];
-      // const arrayOfStrings = arrayOfNumbers.map(num => {
-      //   return String(num);
-      // })
-      return [...leftRange, DOTS, totalPageCount];
+
+      return [...leftRange, rightItemCount, DOTS, totalPageCount];
     }
 
     // third option is when there are no dots to show on the right side
-    if (showLeftDots && ! showRightDots) {
+    if (showLeftDots && !showRightDots) {
       let rightItemCount = 1 + 2 * siblingCount;
+      let leftItemCount = 1 + 2 * siblingCount;
       let rightRange = range (
-        totalPageCount - rightItemCount +1, totalPageCount
+        totalPageCount - rightItemCount +1 , totalPageCount
       );
-      // const arrayOfNumbers = [firstPageIndex, DOTS, ...rightRange];
-      // const arrayOfStrings = arrayOfNumbers.map(num => {
-      //   return String(num)
-      // })
+
       return [firstPageIndex, DOTS, ...rightRange];
     } 
 
@@ -76,10 +72,6 @@ function usePagination({
     if (showLeftDots && showRightDots) {
       let middleRange = range(leftSiblingIndex, rightSiblingIndex);
 
-      // const arrayOfNumbers = [firstPageIndex, DOTS, ...middleRange, DOTS, lastpageIndex];
-      // const arrayOfStrings = arrayOfNumbers.map(num => {
-      //   return String(num)
-      // })
       return [firstPageIndex, DOTS, ...middleRange, DOTS, lastpageIndex];;
     }
 

@@ -38,8 +38,10 @@ const [ postsPerPage, setPostsPerPage] = useState(15)
   // the other is for the page size options when they are changed 
   // these states will change and call the paginate functions 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
-  const paginatePostsPerPage = (pageNumber) => setPostsPerPage(pageNumber);
-
+  const paginatePostsPerPage = (pageNumber) => {
+    setPostsPerPage(pageNumber);
+    setCurrentPage(1);
+  }
   // below we are passing Bloglist the props page, posts, loading, postsPerPage, totalPosts, paginate and paginatePostsPerPage
   return (
     <div style={{ margin: "0 auto", width: "100%", padding: 20 }}>

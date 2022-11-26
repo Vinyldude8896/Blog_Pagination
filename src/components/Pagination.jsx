@@ -35,7 +35,7 @@ function Pagination({
 
   // this variable will be used to assign the last value in the pagination array returned
   // and will be used to disable the button when the user is on the last page
-  var lastvalueInMap = 0 
+  let lastvalueInMap = 0 
 
   return (
     <ul
@@ -51,7 +51,7 @@ function Pagination({
           // Do not modify the aria-label below, it is used for Hatchways automation.
           aria-label="Goto previous page"
           onClick={onPrevious}
-          disabled={currentPage === 1 ? true : false} // If the current page is 1 - have the button be disabled, otherwise keep it enabled
+          disabled={currentPage === 1} // If the current page is 1 - have the button be disabled, otherwise keep it enabled
         >
           <ChevronLeftIcon /> 
         </button>
@@ -102,7 +102,7 @@ function Pagination({
           // Do not modify the aria-label below, it is used for Hatchways automation.
           aria-label="Goto next page"
           onClick={onNext}
-          disabled={currentPage === lastvalueInMap ? true : false} // This will check to see if the currentpage is the lastvalue in the pagination pages returned
+          disabled={currentPage === lastvalueInMap} // This will check to see if the currentpage is the lastvalue in the pagination pages returned
         >
           <ChevronRightIcon />
         </button>

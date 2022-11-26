@@ -12,12 +12,12 @@ function BlogList({ page, posts, loading, postsPerPage, paginate, paginatePostsP
   }
   
   // currentPagination data is being assigned through props by the posts value
-  var currentPaginationData = posts
+  const currentPaginationData = posts
 
   const updateRowsPerPage = (postsPerPage) => {
 
     // as postsPerPage is a string we are converting it to an Integer here
-    let integerPostsPerPage = parseInt(postsPerPage);
+    const  integerPostsPerPage = parseInt(postsPerPage);
 
     //calling paginatePostsPerPage function to update the per page values and paginate the page numbers again
     paginatePostsPerPage(integerPostsPerPage);
