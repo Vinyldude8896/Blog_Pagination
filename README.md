@@ -47,6 +47,8 @@ To test this app:<br />
 5. Try nagigation around the site <br />
 6. Test out the posts per page <br />
 7. Try navigation from page to page <br/>
+8. app is also deployed here : <br/>
+    https://blogpagination.herokuapp.com
 
 ### Questions
     email address : kevinnivek@me.com
