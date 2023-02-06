@@ -1,49 +1,58 @@
-# Hatchways Times
+### Pagination Project
+### User Story
+A company is looking to have their blog site completed. They currently have the API request to pull the data, qand populate blog posts. The company needs pagination set up on their blog. The company's request is as follows:
+  - enable user to select posts per page 15, 25, 50, 100
+  - have page numbers display based on one child before and opne after, using elipses.
+  - have pagination occur when page number is selected or posts per page is changed
 
-Hatchways Times is a website that lists blog posts. All data is located in `src/data/blogs.json` file and loaded directly into client without a server.
+### Features
+This web application uses React.js and yarn to create a Single Web Page Application
+The web page features a blog posting site with pagination and posts per page selectors.
 
-Example blog post data:
+### Badges
+![HTML](https://img.shields.io/badge/HTML-License-blue)
+![React.js](https://img.shields.io/badge/React.js-License-yellowgreen)
+![JavaScript](https://img.shields.io/badge/JavaScript-License-lightblue)
+![CSS](https://img.shields.io/badge/CSS-License-lightgrey)
+![yarn](https://img.shields.io/badge/Tailwind-License-yellowgreen)
 
-```json
-{
-  "id": 1,
-  "author": "Esmeralda Vanne",
-  "title": "Duis bibendum. Morbi non quam nec dui luctus rutrum. Nulla tellus.",
-  "excerpt": "Cras in purus eu magna vulputate luctus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.",
-  "date": "1634439025000",
-  "image": "http://dummyimage.com/200x134.png/cc0000/ffffff",
-  "readingTimeMinutes": 9,
-  "tags": ["crypto", "health"]
-}
-```
+## Table of Contents
 
-# Getting Started
+- [installation](#installation)
+- [contribution guidelines](#contribution)
+- [Test Instructions](#testing)
+- [License](#license)
+- [Questions](#questions)
 
-- System requirements
-  - Node.JS v14
-- Install dependencies
-  ```
-  yarn
-  ```
-- Start client
-  ```
-  yarn start
-  ```
+### Installation
+1. Please clone the github repo here :
+https://github.com/Vinyldude8896/Blog_Pagination
+2. Run npm install to install the dependecies.
+3. Then at the root folder, run yarn start
+4. In your browser navigate to:
+http://localhost:3000/
 
-# Getting Started (Docker)
 
-Instead of following the steps above, you can also use Docker to set up your environment.
+### Contribution Guidelines
+Current contributers:
+Kevin Reid : https://github.com/Vinyldude8896 <br />
 
-- System requirements
-  - [Docker Compose](https://docs.docker.com/compose/install/)
-- Run `docker-compose up` to run the client. 
-- Enter `Ctrl-C` in the same same terminal or `docker-compose down` in a separate terminal to shut down the server.
 
-# Verify That Everything Is Set Up Correctly
+### Testing
+To test this app:<br />
+1. Clone the repo here : https://github.com/Vinyldude8896/Blog_Pagination <br />
+2. Install depenencies using npm install. <br />
+3. from the root folder run yarn start <br />
+4. Browser should open to this page: http://localhost:3000/#home <br />
+5. Try nagigation around the site <br />
+6. Test out the posts per page <br />
+7. Try navigation from page to page <br/>
 
-If your application is running correctly, you should be able to access it from your browser by going to [http://localhost:3000/](http://localhost:3000/).
+### Questions
+    email address : kevinnivek@me.com
+    - additional instructions 
+    I can be contacted by phone as well, but prefer email contact first.
+### Images
 
-# Helpful Commands
+<img src="./src/Screenshot 2023-02-06 at 11.32.30 AM.png" alt="Getting started">
 
-- `yarn test` : This repository contains a non-comprehensive set of unit tests used to determine if your code meets the basic requirements of the assignment. **Please do not modify these tests.**
-- `yarn prettier --write .` : Runs auto-formatter
